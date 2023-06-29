@@ -1,0 +1,36 @@
+﻿<Page x:Class="ProjectOffice.Views.Pages.ZadachiPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjectOffice.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ZadachiPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <DataGrid SelectionChanged="TaskDatasGrid_SelectionChanged" Grid.ColumnSpan="4" Name="TaskDatasGrid" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="{Binding StatusColor}"></Setter>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Полное наименование" Binding="{Binding FullTitle}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Наименование проекта" Binding="{Binding ProjectTitle}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Name="versTb" Grid.Row="1"></TextBlock>
+        <TextBlock Grid.Column="2" Name="tlbText" Grid.ColumnSpan="3" Text="Подробная информация" Visibility="Collapsed"></TextBlock>
+    </Grid>
+</Page>
